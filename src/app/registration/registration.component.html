@@ -1,0 +1,96 @@
+<div class="text-center">
+    <form class="form-signin" [formGroup]="signUpForm" (ngSubmit)="signupFormSubmit()">
+        <img src="https://www.wamasoftware.com/images/logo.svg" width="" class="logo" alt="logo" />
+        <h1 class="h3 mb-5 font-weight-normal">Sign Up</h1>
+        <input type="hidden" formControlName="role_name" value="SuperAdmin" />
+        <div class="row">
+            <div class="form-group col-6 text-left">
+                <label for="inputFirstname" class="col-form-label">First Name</label>
+                <input type="text" formControlName="name" autocomplete="off" id="inputFirstname" class="form-control"
+                    placeholder="First Name" required="" autofocus="">
+            </div>
+            <div class="form-group col-6 text-left">
+                <label for="inputLastname" class="col-form-label">Last Name</label>
+                <input type="text" formControlName="surname" autocomplete="off" id="inputLastname" class="form-control"
+                    placeholder="Last Name" required="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-6 text-left">
+                <label for="inputEmail" class="col-form-label">Email Address</label>
+                <input type="email" formControlName="email" autocomplete="off" id="inputEmail" class="form-control"
+                    placeholder="Email Address" required="">
+            </div>
+            <div class="form-group col-6 text-left">
+                <label for="inputMobile" class="col-form-label">Mobile Number</label>
+                <input type="tel" formControlName="mobile" autocomplete="off" id="inputMobile" class="form-control"
+                    placeholder="Mobile Number" required="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-6 text-left">
+                <label for="inputPassword" class="col-form-label">Password</label>
+                <input type="password" formControlName="password" autocomplete="off" id="inputPassword"
+                    class="form-control" placeholder="Paasword" required="">
+            </div>
+            <div class="form-group col-6 text-left">
+                <label for="inputConfirmPassword" class="col-form-label">Confirm Password</label>
+                <input type="password" formControlName="c_password" autocomplete="off" id="inputConfirmPassword"
+                    class="form-control" placeholder="Confirm Password" required="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-4 text-left">
+                <label for="selectGender" class="col-form-label">Gender</label>
+                <select class="form-control" formControlName="gender" autocomplete="off" id="selectGender" required>
+                    <option selected>Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+            <div class="form-group col-4 text-left">
+                <label for="inputBOD" class="col-form-label">Birth of Date</label>
+                <input type="date" formControlName="birthdate" id="inputBOD" autocomplete="off" class="form-control"
+                    placeholder="BOD" required="">
+            </div>
+            <div class="form-group col-4 text-left">
+                <label for="selectLanguage" class="col-form-label">Language</label>
+                <select class="form-control" formControlName="language" autocomplete="off" id="selectLanguage" required>
+                    <option selected>Select Language</option>
+                    <option>English (USA)</option>
+                    <option>English (UK)</option>
+                    <option>Japanees</option>
+                    <option>French</option>
+                    <option>Hindi</option>
+                    <option>Gujarati</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-4 text-left">
+                <label for="inputCity" class="col-form-label">City</label>
+                <input type="text" formControlName="city" id="inputCity" autocomplete="off" class="form-control"
+                    placeholder="City" required="">
+            </div>
+            <div class="form-group col-4 text-left">
+                <label for="inputState" class="col-form-label">State</label>
+                <input type="text" formControlName="state" id="inputState" autocomplete="off" class="form-control"
+                    placeholder="State" required="">
+            </div>
+            <div class="form-group col-4 text-left">
+                <label for="inputCountry" class="col-form-label">Country</label>
+                <input type="text" formControlName="country" id="inputCountry" autocomplete="off" class="form-control"
+                    placeholder="Country" required="">
+            </div>
+        </div>
+        <p class="text-danger my-2">{{this.message}}</p>
+        <div class="my-3">
+            <label class="text-primary font-weight-bold"><a href="" [routerLink]="['/login']" class="mr-3">I alredy have
+                    a account.</a></label>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+        </div>
+        <p class="mt-5 mb-3 text-muted">© 2019</p>
+    </form>
+</div>
