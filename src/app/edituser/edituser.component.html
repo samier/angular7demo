@@ -1,0 +1,99 @@
+<div class="text-center">
+    <form class="form-signin" [formGroup]="editUserForm" (ngSubmit)="submitEditUserForm()">
+        <div class="row">
+            <div class="form-group col-6 text-left">
+                <label class="col-form-label">First Name</label>
+                <input type="text" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" autocomplete="off" class="form-control" placeholder="First Name" required="" autofocus="" />
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">First name is required</div>
+                </div>
+            </div>
+            <div class="form-group col-6 text-left">
+                <label class="col-form-label">Last Name</label>
+                <input type="text" formControlName="surname" [ngClass]="{ 'is-invalid': submitted && f.surname.errors }" autocomplete="off" id="inputLastname" class="form-control" placeholder="Last Name" required="">
+                <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
+                    <div *ngIf="f.surname.errors.required">Last name is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-6 text-left">
+                <label class="col-form-label">Email Address</label>
+                <input type="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" autocomplete="off" id="inputEmail" class="form-control" placeholder="Email Address" required="">
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
+                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                </div>
+            </div>
+            <div class="form-group col-6 text-left">
+                <label class="col-form-label">Mobile Number</label>
+                <input type="tel" formControlName="mobile" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" autocomplete="off" id="inputMobile" class="form-control" placeholder="Mobile Number" required="">
+                <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                    <div *ngIf="f.mobile.errors.required">Mobile number is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-4 text-left">
+                <label class="col-form-label">Gender</label>
+                <select class="form-control" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" autocomplete="off" id="selectGender" required>
+                    <option selected>Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+                <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                    <div *ngIf="f.gender.errors.required">Gender is required</div>
+                </div>
+            </div>
+            <div class="form-group col-4 text-left">
+                <label class="col-form-label">Birth of Date</label>
+                <input type="date" formControlName="birthdate" [ngClass]="{ 'is-invalid': submitted && f.birthdate.errors }" id="inputBOD" autocomplete="off" class="form-control" placeholder="BOD" required="">
+                <div *ngIf="submitted && f.birthdate.errors" class="invalid-feedback">
+                    <div *ngIf="f.birthdate.errors.required">Birth date is required</div>
+                </div>
+            </div>
+            <div class="form-group col-4 text-left">
+                <label class="col-form-label">Language</label>
+                <select class="form-control" formControlName="language" [ngClass]="{ 'is-invalid': submitted && f.language.errors }" autocomplete="off" id="selectLanguage" required>
+                    <option selected>Select Language</option>
+                    <option>English (USA)</option>
+                    <option>English (UK)</option>
+                    <option>Japanees</option>
+                    <option>French</option>
+                    <option>Hindi</option>
+                    <option>Gujarati</option>
+                </select>
+                <div *ngIf="submitted && f.language.errors" class="invalid-feedback">
+                    <div *ngIf="f.language.errors.required">Language is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-4 text-left">
+                <label class="col-form-label">City</label>
+                <input type="text" formControlName="city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" id="inputCity" autocomplete="off" class="form-control" placeholder="City" required="">
+                <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                    <div *ngIf="f.city.errors.required">City is required</div>
+                </div>
+            </div>
+            <div class="form-group col-4 text-left">
+                <label class="col-form-label">State</label>
+                <input type="text" formControlName="state" [ngClass]="{ 'is-invalid': submitted && f.state.errors }" id="inputState" autocomplete="off" class="form-control" placeholder="State" required="">
+                <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                    <div *ngIf="f.state.errors.required">State is required</div>
+                </div>
+            </div>
+            <div class="form-group col-4 text-left">
+                <label class="col-form-label">Country</label>
+                <input type="text" formControlName="country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" id="inputCountry" autocomplete="off" class="form-control" placeholder="Country" required="">
+                <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                    <div *ngIf="f.country.errors.required">Country is required</div>
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <button class="btn btn-default btn-primary">Save User</button>
+                <a class="btn btn-default btn-success" routerLink="/home">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>

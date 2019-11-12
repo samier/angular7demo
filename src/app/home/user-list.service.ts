@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions} from '@angular/http';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { AuthService } from '../auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +11,15 @@ export class UserListService {
 
   public api_url: string = environment.apiUrl;
 
-  constructor(private _http: Http) {}
+  constructor(
+    private _http: Http,
+    private AuthService: AuthService) {}
 
   userlist() {
-    const token = localStorage.getItem('token');
-    const headers_new = new Headers({ 'Accept': 'application/json', 'Authorization': token });
-    const options = new RequestOptions({ headers: headers_new });
-    return this._http.get(this.api_url + 'userList', options).pipe(map((res: Response) => res.json()));
+    return this._http.get(this.api_url + 'userList', this.AuthService.getAuthorization()).pipe(map((res: Response) => res.json()));
+  }
+
+  deleteUserById(userId) {
+    return this._http.delete(this.api_url + 'deleteUser/' + userId, this.AuthService.getAuthorization()).pipe(map((res: Response) => res.json()));
   }
 }

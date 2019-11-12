@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserListService } from './user-list.service';
+import { MyToasterService } from '../../shared/services/global/my-toaster.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private userlistservice: UserListService,
-    private _router: Router
+    private _router: Router,
+    private toaster: MyToasterService
   ) {
     this.router = _router;
    }
@@ -44,7 +46,19 @@ export class HomeComponent implements OnInit {
           this.failed = true;
         }
       } else {
-        console.log('Error', result.message);
+        this.toaster.showToast('List', result.message, 'error');
+      }
+    });
+  }
+
+  deleteUserById(userId) {
+    this.userlistservice.deleteUserById(userId).subscribe(resultArray => {
+      const result = resultArray;
+      if (result.status === 'success') {
+        this.toaster.showToast('Deleted', result.message, 'success');
+        this.getUserList();
+      } else {
+        this.toaster.showToast('Deleted', result.message, 'error');
       }
     });
   }

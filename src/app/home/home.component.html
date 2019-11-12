@@ -1,5 +1,8 @@
 <div class="container">
     <div class="row">
+        <a class="btn btn-primary" routerLink="/change-password">Change Password</a>
+    </div>
+    <div class="row">
         <div class="col-12">
             <h1 class="text-center mt-0 mb-5">User List</h1>
             <table class="table table-hover">
@@ -13,6 +16,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Mobile</th>
                         <th scope="col">Address</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody *ngIf="totalUser > 0">
@@ -25,6 +29,10 @@
                         <td>{{user.email}}</td>
                         <td>{{user.mobile}}</td>
                         <td>{{user.city}}, {{user.state}}, {{user.country}}</td>
+                        <td>
+                            <a class="btn btn-primary" routerLink="/edit-user/{{user.id}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            <a class="btn btn-danger" (click)="deleteUserById(user.id)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                        </td>
                     </tr>
                 </tbody>
                 <tbody *ngIf="totalUser === 0">
